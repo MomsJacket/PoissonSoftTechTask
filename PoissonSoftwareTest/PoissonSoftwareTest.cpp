@@ -24,6 +24,7 @@ int main(int argc, char* argv[])
     }
     file.close();
     try{
+        // Initialize the polygon and find its symmetry axes
         geom::ConvexPolygon poly;
         poly.SetNodes(nodes);
         auto axes = geom::FindSymmetricAxes(poly);
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
         }
     }
     catch (const geom::ConvexPolygon::IncorrectPolygonException) {
-        std::cerr << "Error: Not convex polygon\n";
+        std::cerr << "Error: Incorrectly set convex polygon\n";
     }
     return 0;
 }

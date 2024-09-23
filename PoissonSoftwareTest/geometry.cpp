@@ -42,7 +42,7 @@ namespace geom{
         return hash_nodes;
     }
     void ConvexPolygon::SetNodes(const std::vector<Point>& nods) {
-        if (!IsConvex(nods)) {
+        if (!IsConvex(nods) || nods.size() < 3) {
             throw IncorrectPolygonException();
         }
         nodes = nods;
